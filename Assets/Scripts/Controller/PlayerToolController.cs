@@ -38,7 +38,7 @@ public class PlayerToolController : MonoBehaviour
         }
         if (currentTool != null)
         {
-            currentTool.GetComponent<Collider>().enabled = false; ;
+            currentTool.GetComponent<Collider>().enabled = true;
         }
         currentTool = newTool;
     }

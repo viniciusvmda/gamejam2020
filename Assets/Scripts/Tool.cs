@@ -25,5 +25,4 @@ public abstract class Tool : MonoBehaviour
         var playerToolController = player.GetComponent<PlayerToolController>();
         playerToolController.SetCurrentTool(this);
     }
-
 }
