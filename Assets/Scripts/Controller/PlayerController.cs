@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController characterController;
 
-    public float speed = 5.0f;
+    public float speed = 3.0f;
 
     private Vector3 moveDirection = Vector3.zero;
 
