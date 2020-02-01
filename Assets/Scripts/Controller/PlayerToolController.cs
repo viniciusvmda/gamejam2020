@@ -1,10 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerToolController : MonoBehaviour
 {
     public float toolOffsetLength;
     public Tool currentTool;
+    public Text toolText;
 
     private PlayerMovementController playerMovementController;
     private bool debounce = false;

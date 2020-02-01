@@ -11,12 +11,12 @@ public class ManHole : InteractiveTriggerElement
     private GameObject waterObj;
     private Vector3 initialWaterScale;
 
-    private float t;
+    private float t = 0;
     private float initialDebris;
+    private bool cleared = false;
 
     void Start()
     {
-        t = 0;
         initialDebris = debrisAmount;
         waterObj = transform.GetChild(0).gameObject;
         initialWaterScale = waterObj.transform.localScale;
@@ -35,6 +35,14 @@ public class ManHole : InteractiveTriggerElement
 
     protected override void OnPlayerAction()
     {
-        debrisAmount = Mathf.Max(0, debrisAmount - cleanSpeed);
+        if (!cleared)
+        {
+            debrisAmount = Mathf.Max(0, debrisAmount - cleanSpeed);
+            if (debrisAmount == 0)
+            {
+                cleared = true;
+                FindObjectOfType<VictoryWatcher>().OnObstacleCleared(this);
+            }
+        }
     }
 }

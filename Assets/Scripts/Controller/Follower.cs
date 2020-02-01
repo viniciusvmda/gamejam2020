@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Camera3DController : MonoBehaviour
+public class Follower : MonoBehaviour
 {
     public float distance;
     public GameObject player;
@@ -11,7 +11,6 @@ public class Camera3DController : MonoBehaviour
         offset = distance * Vector3.up;
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         transform.position = player.transform.position + offset;

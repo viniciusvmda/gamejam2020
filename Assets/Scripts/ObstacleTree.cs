@@ -14,6 +14,7 @@ public class ObstacleTree : InteractiveTriggerElement
     {
         if (hardness <= 0)
         {
+            FindObjectOfType<VictoryWatcher>().OnObstacleCleared(this);
             Destroy(gameObject);
         }
     }

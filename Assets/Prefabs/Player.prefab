@@ -157,3 +157,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolOffsetLength: 0.6
   currentTool: {fileID: 0}
+  toolText: {fileID: 0}

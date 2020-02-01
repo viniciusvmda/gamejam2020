@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8586840236175565014}
   - component: {fileID: 3364269838621179666}
   - component: {fileID: 4562791102593262796}
-  - component: {fileID: 2644523574610490380}
+  - component: {fileID: 1307610479}
   m_Layer: 0
   m_Name: ShovelMinimap
   m_TagString: Untagged
@@ -92,7 +92,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2644523574610490380
+--- !u!114 &1307610479
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4757101407336954945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 427ff643032d81b4cba2d323d9a66b6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c3a3ea61ec953545bf03196e4aca52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 20
