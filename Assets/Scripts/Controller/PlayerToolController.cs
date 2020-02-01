@@ -11,7 +11,6 @@ public class PlayerToolController : MonoBehaviour
         currentTool = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (currentTool != null)
@@ -20,6 +19,14 @@ public class PlayerToolController : MonoBehaviour
             {
                 currentTool.fix();
             }
+        }
+
+    }
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (currentTool != null)
+        {
             currentTool.transform.position = transform.position;
         }
         
