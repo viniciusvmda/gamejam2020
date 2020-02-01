@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ManHole : MonoBehaviour
+public class ManHole : InteractiveTriggerElement
 {
     public float growthScale;
     public float logBase;
@@ -33,17 +33,8 @@ public class ManHole : MonoBehaviour
         return growthScale * Mathf.Log(t + 1, logBase);
     }
 
-    private void Clean()
+    protected override void OnPlayerAction()
     {
         debrisAmount = Mathf.Max(0, debrisAmount - cleanSpeed);
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        var playerActuator = other.GetComponent<PlayerToolController>();
-        if (playerActuator != null && playerActuator.IsActing())
-        {
-            Clean();
-        }
     }
 }

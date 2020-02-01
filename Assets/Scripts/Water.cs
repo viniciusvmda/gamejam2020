@@ -2,17 +2,17 @@
 
 public class Water : MonoBehaviour
 {
-    public float dragFactor = 0.5f;
+    public int dragFactorPercent = 50;
 
     private void OnTriggerEnter(Collider other)
     {
         PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
-        playerMovementController.slowDownSpeed(dragFactor);
+        playerMovementController?.AddSpeedPenalty(gameObject, dragFactorPercent);
     }
 
     private void OnTriggerExit(Collider other)
     {
         PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
-        playerMovementController.resetSpeed();
+        playerMovementController?.RemoveSpeedPenalty(gameObject);
     }
 }

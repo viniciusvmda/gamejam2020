@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
 public class Shovel : Tool
 {
-    public override void Fix()
+    public override bool WorksForType(Type obstacleType)
     {
-        Debug.Log("Fix using shovel");
+        return obstacleType == typeof(ManHole);
     }
 }

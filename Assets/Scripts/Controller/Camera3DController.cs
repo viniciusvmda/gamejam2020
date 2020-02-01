@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Camera3DController : MonoBehaviour
 {
+    public float distance;
     public GameObject player;
     private Vector3 offset;
 
     void Start()
     {
-        offset = transform.position - player.transform.position;
+        offset = distance * Vector3.up;
     }
 
     // Update is called once per frame
