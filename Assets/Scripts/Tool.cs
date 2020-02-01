@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class Tool : MonoBehaviour
 {
-    public abstract void fix();
+    public abstract void Fix();
     public abstract string getName();
 
     void Start()
@@ -19,14 +17,14 @@ public abstract class Tool : MonoBehaviour
     {
         if (Input.GetButtonUp("Jump"))
         {
-            addToolToPlayer(other.gameObject);
+            AddToolToPlayer(other.gameObject);
         }
     }
 
-    private void addToolToPlayer(GameObject player)
+    private void AddToolToPlayer(GameObject player)
     {
-        PlayerToolController playerToolController = player.GetComponent<PlayerToolController>();
-        playerToolController.currentTool = this;
+        var playerToolController = player.GetComponent<PlayerToolController>();
+        playerToolController.SetCurrentTool(this);
     }
 
 }

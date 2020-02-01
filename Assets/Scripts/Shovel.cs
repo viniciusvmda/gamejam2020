@@ -9,7 +9,7 @@ public class Shovel : Tool
 
     }
 
-    public override void fix()
+    public override void Fix()
     {
         Debug.Log("Fix using shovel");
     }

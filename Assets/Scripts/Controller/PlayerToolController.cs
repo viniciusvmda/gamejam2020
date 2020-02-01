@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerToolController : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class PlayerToolController : MonoBehaviour
         {
             if (Input.GetButtonUp("Jump"))
             {
-                currentTool.fix();
+                currentTool.Fix();
             }
         }
 
@@ -32,9 +30,17 @@ public class PlayerToolController : MonoBehaviour
         
     }
 
-    public void DropTool()
+    public void SetCurrentTool(Tool newTool)
     {
-        currentTool = null;
+        if (newTool != null)
+        {
+            newTool.GetComponent<Collider>().enabled = false;
+        }
+        if (currentTool != null)
+        {
+            currentTool.GetComponent<Collider>().enabled = false; ;
+        }
+        currentTool = newTool;
     }
 
     public bool IsActing()
