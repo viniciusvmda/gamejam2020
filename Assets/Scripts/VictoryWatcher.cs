@@ -28,7 +28,7 @@ public class VictoryWatcher : MonoBehaviour
             bool manholePresent = false;
             for (int i = 0; !manholePresent && i < obstaclesToBeRemoved.Count; i += 1)
             {
-                manholePresent |= obstaclesToBeRemoved[i].GetType() == typeof(ManHole);
+                manholePresent |= obstaclesToBeRemoved[i].GetType() == typeof(Manhole);
             }
             victory = !manholePresent;
         }

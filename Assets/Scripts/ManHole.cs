@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ManHole : InteractiveTriggerElement
+public class Manhole : InteractiveTriggerElement
 {
     public float growthScale;
     public float logBase;
