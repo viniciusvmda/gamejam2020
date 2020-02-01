@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class Tool : MonoBehaviour
 {
-    public abstract void Fix();
+    public int dragFactorPercent = 20;
+
+    public abstract bool WorksForType(Type obstacleType);
 
     void Start()
     {
