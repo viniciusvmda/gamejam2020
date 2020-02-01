@@ -22,7 +22,7 @@ public class PlayerToolController : MonoBehaviour
         }
 
     }
-    // Update is called once per frame
+
     void LateUpdate()
     {
         if (currentTool != null)
@@ -32,8 +32,13 @@ public class PlayerToolController : MonoBehaviour
         
     }
 
-    public void dropTool()
+    public void DropTool()
     {
         currentTool = null;
+    }
+
+    public bool IsActing()
+    {
+        return Input.GetButtonUp("Jump");
     }
 }
