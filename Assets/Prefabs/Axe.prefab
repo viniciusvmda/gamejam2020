@@ -104,3 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fa61d917e1308449a45dd31fa2685d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragFactorPercent: 20
