@@ -3,7 +3,6 @@
 public abstract class Tool : MonoBehaviour
 {
     public abstract void Fix();
-    public abstract string getName();
 
     void Start()
     {
