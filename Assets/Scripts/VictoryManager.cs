@@ -69,7 +69,7 @@ public class VictoryManager : MonoBehaviour
         {
             float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = $"Você venceu em {string.Format("{0:0.00}", victoryAt)} segundos :)";
+            gameOverText.text = $"Você venceu em {string.Format("{0:0.00}", victoryAt)} segundos :) \n\n Made by Renan, Thales e Vinícius";
         }
     }
 
@@ -85,7 +85,7 @@ public class VictoryManager : MonoBehaviour
             defeat = true;
             float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = $"Você perdeu em {string.Format("{0:0.00}", victoryAt)} segundos :|";
+            gameOverText.text = $"Você perdeu em {string.Format("{0:0.00}", victoryAt)} segundos :| \n\n Made by Renan, Thales e Vinícius";
         }
     }
 
