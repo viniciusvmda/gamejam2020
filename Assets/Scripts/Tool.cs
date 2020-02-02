@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public abstract class Tool : MonoBehaviour
 {
-    public static int dragFactorPercent;
+    public static int dragFactorPercent = 20;
 
     public abstract bool WorksForType(Type obstacleType);
     public abstract void ConfigureUIText(Text text);

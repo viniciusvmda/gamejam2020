@@ -16,7 +16,14 @@ public class VictoryWatcher : MonoBehaviour
     void Start()
     {
         startTimeSeconds = Time.realtimeSinceStartup;
-        obstaclesToBeRemoved = new List<InteractiveTriggerElement>(FindObjectsOfType<InteractiveTriggerElement>());
+        obstaclesToBeRemoved = new List<InteractiveTriggerElement>();
+        foreach (var o in FindObjectsOfType<InteractiveTriggerElement>())
+        {
+            if (o.enabled)
+            {
+                obstaclesToBeRemoved.Add(o);
+            }
+        }
     }
     
     public void OnObstacleCleared(InteractiveTriggerElement removedObstacle)
@@ -40,7 +47,7 @@ public class VictoryWatcher : MonoBehaviour
         {
             victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = "YOU WON";
+            gameOverText.text = $"Voce venceu!\r\n{string.Format("{0:0.00}", victoryAt)} segundos";
         }
     }
 

@@ -7,12 +7,12 @@ public class Water : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
-        playerMovementController.AddSpeedPenalty(gameObject, dragFactorPercent);
+        playerMovementController.AddSpeedPenalty(GetType(), dragFactorPercent);
     }
 
     private void OnTriggerExit(Collider other)
     {
         PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
-        playerMovementController.RemoveSpeedPenalty(gameObject);
+        playerMovementController.RemoveSpeedPenalty(GetType());
     }
 }

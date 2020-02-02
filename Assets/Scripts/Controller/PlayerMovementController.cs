@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     private PlayerToolController toolController;
 
     private Vector3 moveDirection = Vector3.zero;
-    private Dictionary<GameObject, int> speedPenalties = new Dictionary<GameObject, int>();
+    private Dictionary<Type, PenaltyInfo> speedPenalties = new Dictionary<Type, PenaltyInfo>();
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class PlayerMovementController : MonoBehaviour
         int sum = 0;
         foreach (var tuple in speedPenalties)
         {
-            sum += tuple.Value;
+            sum += tuple.Value.penalty;
         }
         return Mathf.Min(maxSpeedPenalty, sum);
     }
@@ -41,13 +42,39 @@ public class PlayerMovementController : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
-    public void AddSpeedPenalty(GameObject key, int penaltyPercent)
+    public void AddSpeedPenalty(Type key, int penaltyPercent)
     {
-        speedPenalties[key] = penaltyPercent;
+        if (speedPenalties.ContainsKey(key))
+        {
+            speedPenalties[key].count += 1;
+        }
+        else
+        {
+            speedPenalties[key] = new PenaltyInfo(1, penaltyPercent);
+        }
     }
 
-    public void RemoveSpeedPenalty(GameObject key)
+    public void RemoveSpeedPenalty(Type key)
     {
-        speedPenalties.Remove(key);
+        if (speedPenalties[key].count > 1)
+        {
+            speedPenalties[key].count -= 1;
+        }
+        else
+        {
+            speedPenalties.Remove(key);
+        }
+    }
+
+    public class PenaltyInfo
+    {
+        public int count;
+        public int penalty;
+
+        public PenaltyInfo(int count, int penalty)
+        {
+            this.count = count;
+            this.penalty = penalty;
+        }
     }
 }

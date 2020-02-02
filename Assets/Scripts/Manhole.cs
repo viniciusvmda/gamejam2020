@@ -17,10 +17,10 @@ public class Manhole : InteractiveTriggerElement
 
     protected override void Start()
     {
-        base.Start();
         initialDebris = debrisAmount;
         waterObj = transform.GetChild(0).gameObject;
         initialWaterScale = waterObj.transform.localScale;
+        base.Start();
     }
 
     void Update()

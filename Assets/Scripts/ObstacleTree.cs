@@ -9,8 +9,8 @@ public class ObstacleTree : InteractiveTriggerElement
 
     protected override void Start()
     {
-        base.Start();
         initialHardness = hardness;
+        base.Start();
     }
 
     void Update()
