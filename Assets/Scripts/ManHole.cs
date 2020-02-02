@@ -43,7 +43,7 @@ public class Manhole : InteractiveTriggerElement
             if (debrisAmount == 0)
             {
                 cleared = true;
-                FindObjectOfType<VictoryWatcher>().OnObstacleCleared(this);
+                FindObjectOfType<VictoryManager>().OnObstacleCleared(this);
             }
         }
     }

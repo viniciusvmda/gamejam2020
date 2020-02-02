@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class VictoryWatcher : MonoBehaviour
+public class VictoryManager : MonoBehaviour
 {
     public Type type;
     public RectTransform gameOverPanel;
@@ -12,6 +12,10 @@ public class VictoryWatcher : MonoBehaviour
     private List<InteractiveTriggerElement> obstaclesToBeRemoved;
     private float startTimeSeconds;
     private bool victory;
+    private bool defeat;
+
+    private int totalDeafeatPoints;
+    private int defeatPointCount;
 
     void Start()
     {
@@ -24,11 +28,13 @@ public class VictoryWatcher : MonoBehaviour
                 obstaclesToBeRemoved.Add(o);
             }
         }
+
+        totalDeafeatPoints = transform.childCount;
     }
 
     void Update()
     {
-        if (victory)
+        if (victory || defeat)
         {
             if (Input.GetButton("Cancel"))
             {
@@ -59,8 +65,25 @@ public class VictoryWatcher : MonoBehaviour
         {
             float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = $"Voce venceu!\r\n{string.Format("{0:0.00}", victoryAt)} segundos";
+            gameOverText.text = $"Você venceu!\r\n{string.Format("{0:0.00}", victoryAt)} segundos";
         }
+    }
+
+    public void IncrementFloodedCounter()
+    {
+        defeatPointCount += 1;
+        if (defeatPointCount == totalDeafeatPoints)
+        {
+            defeat = true;
+            float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
+            gameOverPanel.gameObject.SetActive(true);
+            gameOverText.text = $"Você perdeu em {string.Format("{0:0.00}", victoryAt)} segundos :|";
+        }
+    }
+
+    public void DecrementFloodedCounter()
+    {
+        defeatPointCount -= 1;
     }
 
     public enum Type

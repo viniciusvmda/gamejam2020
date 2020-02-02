@@ -6,13 +6,19 @@ public class Water : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
-        playerMovementController.AddSpeedPenalty(GetType(), dragFactorPercent);
+        if (other.gameObject.layer == 9)
+        {
+            PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
+            playerMovementController.AddSpeedPenalty(GetType(), dragFactorPercent);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
-        playerMovementController.RemoveSpeedPenalty(GetType());
+        if (other.gameObject.layer == 9)
+        {
+            PlayerMovementController playerMovementController = other.GetComponent<PlayerMovementController>();
+            playerMovementController.RemoveSpeedPenalty(GetType());
+        }
     }
 }
