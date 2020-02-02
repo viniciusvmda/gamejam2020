@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 3209333066987514878}
   - component: {fileID: 3209333066987514865}
   m_Layer: 0
-  m_Name: ManHole
+  m_Name: Manhole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 3209333066987514867}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 393.91364, y: 2979.3408, z: 100.00011}
+  m_LocalScale: {x: 364.0001, y: 364.00052, z: 364.00046}
   m_Children:
   - {fileID: 3209333066307266206}
   - {fileID: 3209333066951931937}
@@ -330,12 +330,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116aeec1899a8cb4bb5c1de23fb19ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusText: {fileID: 914632370}
   growthScale: 100
   logBase: 100
   debrisAmount: 10
   debrisInflectionAmount: 2
   cleanSpeed: 1
-  statusText: {fileID: 914632370}
 --- !u!135 &3209333066987514865
 SphereCollider:
   m_ObjectHideFlags: 0

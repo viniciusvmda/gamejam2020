@@ -2,12 +2,15 @@
 
 public class ObstacleTree : InteractiveTriggerElement
 {
-    public float hardness;
-    public float destroySpeed;
+    public int hardness;
+    public int destroySpeed;
 
-    protected override void OnPlayerAction()
+    private int initialHardness;
+
+    protected override void Start()
     {
-        hardness = Mathf.Max(0, hardness - destroySpeed);
+        base.Start();
+        initialHardness = hardness;
     }
 
     void Update()
@@ -17,5 +20,16 @@ public class ObstacleTree : InteractiveTriggerElement
             FindObjectOfType<VictoryWatcher>().OnObstacleCleared(this);
             Destroy(gameObject);
         }
+    }
+
+    protected override void OnPlayerAction()
+    {
+        hardness = Mathf.Max(0, hardness - destroySpeed);
+        UpdateStatusText();
+    }
+
+    protected override void UpdateStatusText()
+    {
+        statusText.text = $"{hardness}/{initialHardness}";
     }
 }
