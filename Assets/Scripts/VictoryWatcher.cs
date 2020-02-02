@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VictoryWatcher : MonoBehaviour
 {
     public Type type;
     public bool victory;
     public float victoryAt;
+    public RectTransform gameOverPanel;
+    public Text gameOverText;
 
     private List<InteractiveTriggerElement> obstaclesToBeRemoved;
     private float startTimeSeconds;
@@ -36,6 +39,8 @@ public class VictoryWatcher : MonoBehaviour
         if (victory)
         {
             victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
+            gameOverPanel.gameObject.SetActive(true);
+            gameOverText.text = "YOU WON";
         }
     }
 
