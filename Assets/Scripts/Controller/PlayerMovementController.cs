@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     public float speed = 3.0f;
+    public GameObject body;
+
+    private float rotationFactor = 0.5f;
     private int maxSpeedPenalty;
     private CharacterController characterController;
     private PlayerToolController toolController;
-
     private Vector3 moveDirection = Vector3.zero;
     private Dictionary<Type, PenaltyInfo> speedPenalties = new Dictionary<Type, PenaltyInfo>();
 
@@ -21,7 +23,14 @@ public class PlayerMovementController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        float currentSpeed = (100 - SumSpeedPenalty()) / 100f * speed;
+        bool isWalking = Input.GetButton("Horizontal") || Input.GetButton("Vertical");
+        
+        Move(currentSpeed);
+        if (isWalking)
+        {
+            RotateBody(currentSpeed);
+        }
     }
 
     private int SumSpeedPenalty()
@@ -34,15 +43,20 @@ public class PlayerMovementController : MonoBehaviour
         return Mathf.Min(maxSpeedPenalty, sum);
     }
 
-    private void Move()
+    private void Move(float currentSpeed)
     {
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         if (moveDirection != Vector3.zero)
         {
             RotateCharacter(moveDirection);
         }
-        moveDirection *= (100 - SumSpeedPenalty()) / 100f * speed;
+        moveDirection *= currentSpeed;
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    private void RotateBody(float currentSpeed)
+    {
+        body.transform.Rotate(currentSpeed * rotationFactor, 0, 0);
     }
 
     public void AddSpeedPenalty(Type key, int penaltyPercent)
@@ -69,7 +83,7 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    public void RotateCharacter(Vector3 moveDirection)
+    private void RotateCharacter(Vector3 moveDirection)
     {
         float newAngle = Vector3.SignedAngle(Vector3.forward, moveDirection, Vector3.up);
         transform.rotation = Quaternion.Euler(0, newAngle, 0);

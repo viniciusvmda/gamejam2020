@@ -38,7 +38,7 @@ public class VictoryManager : MonoBehaviour
         {
             if (Input.GetButton("Cancel"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene("Title");
             }
             return;
         }
@@ -67,9 +67,8 @@ public class VictoryManager : MonoBehaviour
 
         if (victory)
         {
-            float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = $"Você venceu em {string.Format("{0:0.00}", victoryAt)} segundos :) \n\n Made by Renan, Thales e Vinícius";
+            gameOverText.text = $"Você venceu em {GetTimeElapsedText(":D")}";
         }
     }
 
@@ -83,10 +82,15 @@ public class VictoryManager : MonoBehaviour
         if (defeatPointCount == totalDeafeatPoints)
         {
             defeat = true;
-            float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = $"Você perdeu em {string.Format("{0:0.00}", victoryAt)} segundos :| \n\n Made by Renan, Thales e Vinícius";
+            gameOverText.text = $"Você perdeu em {GetTimeElapsedText(":(")}";
         }
+    }
+
+    private string GetTimeElapsedText(string face)
+    {
+        float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
+        return $"{ string.Format("{0:0.00}", victoryAt)}segundos {face}\n\nCriado por Renan, Thales e Vinícius";
     }
 
     public void DecrementFloodedCounter()
