@@ -1307,19 +1307,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "setinhas - movimentar\nespa\xE7o - pegar / atuar\nalt - soltar\nesc - reiniciar\n\nEnter
-    para continuar"
+  m_Text: "Setinhas movimentam o personagem\n<espa\xE7o> pega ferramenta / conserta\n<alt>
+    solta a ferramenta\n<esc> reinicia o jogo\n\n<Enter> para continuar"
 --- !u!222 &943967060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2428,7 +2428,7 @@ RectTransform:
   m_GameObject: {fileID: 2029249939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2586681, y: 0.3155625, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 943967058}
   m_Father: {fileID: 1759350230}
@@ -2436,8 +2436,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0010986328, y: 0.00036621094}
-  m_SizeDelta: {x: 1616.4, y: 687.56}
+  m_AnchoredPosition: {x: -67.95056, y: -109.50004}
+  m_SizeDelta: {x: 1752.2988, y: 468.56006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2029249942
 CanvasRenderer:
@@ -3258,7 +3258,7 @@ PrefabInstance:
     - target: {fileID: 2644889475867295735, guid: d7d1c8629414bd046acf4f5760dfc89a,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7d1c8629414bd046acf4f5760dfc89a, type: 3}

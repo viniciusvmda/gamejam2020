@@ -90,7 +90,7 @@ public class VictoryManager : MonoBehaviour
     private string GetTimeElapsedText(string face)
     {
         float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
-        return $"{ string.Format("{0:0.00}", victoryAt)}segundos {face}\n\nCriado por Renan, Thales e Vinícius";
+        return $"{ string.Format("{0:0.00}", victoryAt)}segundos {face}\n\nPressione <ESC> para reiniciar";
     }
 
     public void DecrementFloodedCounter()
