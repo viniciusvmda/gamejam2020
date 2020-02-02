@@ -331,7 +331,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusText: {fileID: 914632370}
   growthScale: 17
-  logBase: 100
   debrisAmount: 10
   debrisInflectionAmount: 2
   cleanSpeed: 1

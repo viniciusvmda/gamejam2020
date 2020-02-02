@@ -3,7 +3,6 @@
 public class Manhole : InteractiveTriggerElement
 {
     public float growthScale;
-    public float logBase;
     public int debrisAmount;
     public int debrisInflectionAmount;
     public int cleanSpeed;

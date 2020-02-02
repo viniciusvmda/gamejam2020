@@ -46,6 +46,10 @@ public class VictoryManager : MonoBehaviour
 
     public void OnObstacleCleared(InteractiveTriggerElement removedObstacle)
     {
+        if (defeat)
+        {
+            return;
+        }
         obstaclesToBeRemoved.Remove(removedObstacle);
         if (type == Type.ALL_OBSTACLES_CLEARED)
         {
@@ -65,12 +69,16 @@ public class VictoryManager : MonoBehaviour
         {
             float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
-            gameOverText.text = $"Você venceu!\r\n{string.Format("{0:0.00}", victoryAt)} segundos";
+            gameOverText.text = $"Você venceu em {string.Format("{0:0.00}", victoryAt)} segundos :)";
         }
     }
 
     public void IncrementFloodedCounter()
     {
+        if (victory)
+        {
+            return;
+        }
         defeatPointCount += 1;
         if (defeatPointCount == totalDeafeatPoints)
         {
