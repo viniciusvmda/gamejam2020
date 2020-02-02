@@ -1,19 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Tool : MonoBehaviour
 {
-    public int dragFactorPercent = 20;
+    public int dragFactorPercent;
 
     public abstract bool WorksForType(Type obstacleType);
-
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-    }
+    public abstract void ConfigureUIText(Text text);
 
     private void OnTriggerStay(Collider other)
     {

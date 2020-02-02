@@ -16,6 +16,7 @@ public class PlayerToolController : MonoBehaviour
     {
         currentTool = null;
         playerMovementController = GetComponent<PlayerMovementController>();
+        toolText.text = "";
     }
 
     void Update()
@@ -39,6 +40,7 @@ public class PlayerToolController : MonoBehaviour
     {
         if (newTool != null)
         {
+            newTool.ConfigureUIText(toolText);
             newTool.enabled = false;
             newTool.GetComponent<Collider>().enabled = false;
             playerMovementController.AddSpeedPenalty(newTool.gameObject, newTool.dragFactorPercent);
