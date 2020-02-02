@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Manhole : InteractiveTriggerElement
 {
@@ -7,6 +8,7 @@ public class Manhole : InteractiveTriggerElement
     public float debrisAmount;
     public float debrisInflectionAmount;
     public float cleanSpeed;
+    public Text statusText;
 
     private GameObject waterObj;
     private Vector3 initialWaterScale;
@@ -18,6 +20,7 @@ public class Manhole : InteractiveTriggerElement
     void Start()
     {
         initialDebris = debrisAmount;
+        statusText.text = $"{debrisAmount}/{initialDebris}";
         waterObj = transform.GetChild(0).gameObject;
         initialWaterScale = waterObj.transform.localScale;
     }
@@ -38,6 +41,7 @@ public class Manhole : InteractiveTriggerElement
         if (!cleared)
         {
             debrisAmount = Mathf.Max(0, debrisAmount - cleanSpeed);
+            statusText.text = $"{debrisAmount}/{initialDebris}";
             if (debrisAmount == 0)
             {
                 cleared = true;
