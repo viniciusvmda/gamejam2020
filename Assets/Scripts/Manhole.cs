@@ -31,7 +31,7 @@ public class Manhole : InteractiveTriggerElement
 
     private float GetSize()
     {
-        return growthScale * Mathf.Log(t + 1, logBase);
+        return growthScale * Mathf.Sqrt(t);
     }
 
     protected override void OnPlayerAction()
