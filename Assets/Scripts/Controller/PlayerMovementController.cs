@@ -37,7 +37,10 @@ public class PlayerMovementController : MonoBehaviour
     private void Move()
     {
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        toolController.RotateTool(moveDirection);
+        if (moveDirection != Vector3.zero)
+        {
+            RotateCharacter(moveDirection);
+        }
         moveDirection *= (100 - SumSpeedPenalty()) / 100f * speed;
         characterController.Move(moveDirection * Time.deltaTime);
     }
@@ -64,6 +67,13 @@ public class PlayerMovementController : MonoBehaviour
         {
             speedPenalties.Remove(key);
         }
+    }
+
+    public void RotateCharacter(Vector3 moveDirection)
+    {
+        float newAngle = Vector3.SignedAngle(Vector3.forward, moveDirection, Vector3.up);
+        transform.rotation = Quaternion.Euler(0, newAngle, 0);
+        toolController.RotateTool(moveDirection);
     }
 
     public class PenaltyInfo

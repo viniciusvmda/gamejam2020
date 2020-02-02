@@ -70,7 +70,7 @@ public class PlayerToolController : MonoBehaviour
 
     public void RotateTool(Vector3 moveDirection)
     {
-        if (currentTool != null && moveDirection != Vector3.zero)
+        if (currentTool != null)
         {
             toolPositionOffset = toolOffsetLength * moveDirection.normalized;
         }
