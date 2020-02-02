@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     public float speed = 3.0f;
+    private int maxSpeedPenalty;
     private CharacterController characterController;
     private PlayerToolController toolController;
 
@@ -14,6 +15,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         toolController = GetComponent<PlayerToolController>();
         characterController = GetComponent<CharacterController>();
+        maxSpeedPenalty = Water.dragFactorPercent + Tool.dragFactorPercent;
     }
 
     void Update()
@@ -28,7 +30,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             sum += tuple.Value;
         }
-        return sum;
+        return Mathf.Min(maxSpeedPenalty, sum);
     }
 
     private void Move()

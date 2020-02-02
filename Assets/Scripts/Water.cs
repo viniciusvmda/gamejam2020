@@ -2,7 +2,7 @@
 
 public class Water : MonoBehaviour
 {
-    public int dragFactorPercent = 50;
+    public static int dragFactorPercent = 50;
 
     private void OnTriggerEnter(Collider other)
     {

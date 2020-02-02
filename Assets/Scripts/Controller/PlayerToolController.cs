@@ -42,7 +42,7 @@ public class PlayerToolController : MonoBehaviour
             newTool.ConfigureUIText(toolText);
             newTool.enabled = false;
             newTool.GetComponent<Collider>().enabled = false;
-            playerMovementController.AddSpeedPenalty(newTool.gameObject, newTool.dragFactorPercent);
+            playerMovementController.AddSpeedPenalty(newTool.gameObject, Tool.dragFactorPercent);
         }
         else
         {
