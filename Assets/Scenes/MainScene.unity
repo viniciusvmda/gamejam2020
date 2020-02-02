@@ -186,7 +186,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1577,11 +1577,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
-    - target: {fileID: 1876572500923814334, guid: f2c0251e0625e51489feb65d91e01a82,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c0251e0625e51489feb65d91e01a82, type: 3}
 --- !u!1001 &2009893857328988496
@@ -1871,11 +1866,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2509475092958804564, guid: 21ce847abf3835544aaa88897bf7fddf,
-        type: 3}
-      propertyPath: type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2509475092958804564, guid: 21ce847abf3835544aaa88897bf7fddf,
         type: 3}
       propertyPath: gameOverPanel

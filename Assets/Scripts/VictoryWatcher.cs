@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VictoryWatcher : MonoBehaviour
 {
     public Type type;
-    public bool victory;
-    public float victoryAt;
     public RectTransform gameOverPanel;
     public Text gameOverText;
 
     private List<InteractiveTriggerElement> obstaclesToBeRemoved;
     private float startTimeSeconds;
+    private bool victory;
 
     void Start()
     {
@@ -25,7 +25,19 @@ public class VictoryWatcher : MonoBehaviour
             }
         }
     }
-    
+
+    void Update()
+    {
+        if (victory)
+        {
+            if (Input.GetButton("Cancel"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            return;
+        }
+    }
+
     public void OnObstacleCleared(InteractiveTriggerElement removedObstacle)
     {
         obstaclesToBeRemoved.Remove(removedObstacle);
@@ -45,7 +57,7 @@ public class VictoryWatcher : MonoBehaviour
 
         if (victory)
         {
-            victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
+            float victoryAt = Time.realtimeSinceStartup - startTimeSeconds;
             gameOverPanel.gameObject.SetActive(true);
             gameOverText.text = $"Voce venceu!\r\n{string.Format("{0:0.00}", victoryAt)} segundos";
         }
